@@ -45,6 +45,14 @@ $ make
 
  * TODO
 
+# Repository Structure
+
+ * `script`: CISA front-end scripts (Python)
+ * `src`: CISA back-end code (C++)
+  - `analyzer`: where custom analyzers sits in
+  - `callgraph`: incremental call graph analysis (MLTA)
+ * `extern`: external dependencies
+
 # Reference
 
  * Call graph analysis: code based on [mlta](https://github.com/umnsec/mlta)
