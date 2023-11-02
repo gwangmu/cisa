@@ -54,10 +54,16 @@ $ sudo pip install gitpython
  
  2. Decompress the [prebuilt LLVM 15 binary](https://releases.llvm.org/download.html) to `llvm` at the root.
     - Or you can create a symlink `llvm` to the LLVM install directory (if you built LLVM on your own).
-
- 3. Make. (at the root)
 ```
-$ make
+$ # example: assuming Ubuntu 20.04+. at the root directory.
+$ wget https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.5/clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+$ tar -xvf clang+llvm*
+$ mv clang+llvm* llvm
+```
+
+ 3. Make.
+```
+$ make # at the root directory.
 ```
 
 ## Document 
