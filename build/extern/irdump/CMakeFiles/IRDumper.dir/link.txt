@@ -1,1 +1,0 @@
-/home/gwangmu/Projects/Riskier/llvm/install/bin/clang++ -fPIC  -fno-rtti -fpic -g  -shared -Wl,-soname,libIRDumper.so -o ../../lib/libIRDumper.so CMakeFiles/IRDumper.dir/dumper.cpp.o 
