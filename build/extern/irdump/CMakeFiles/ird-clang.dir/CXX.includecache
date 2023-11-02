@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gwangmu/Projects/Riskier/cisa/extern/irdump/wrapper.cpp
+cassert
+-
+cstdlib
+-
+iostream
+-
+string
+-
+unistd.h
+-
+

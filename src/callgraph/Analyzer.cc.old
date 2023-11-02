@@ -1,0 +1,65 @@
+//===-- Analyzer.cc - the kernel-analysis framework-------------===//
+//
+// It constructs a global call-graph based on multi-layer type
+// analysis.
+//
+//===-----------------------------------------------------------===//
+
+#include "llvm/IR/InstIterator.h"
+#include "llvm/IR/LLVMContext.h"
+#include "llvm/IR/PassManager.h"
+#include "llvm/IR/Module.h"
+#include "llvm/IR/Verifier.h"
+#include "llvm/Bitcode/BitcodeReader.h"
+#include "llvm/Bitcode/BitcodeWriter.h"
+#include "llvm/Support/ManagedStatic.h"
+#include "llvm/Support/PrettyStackTrace.h"
+#include "llvm/Support/ToolOutputFile.h"
+#include "llvm/Support/SystemUtils.h"
+#include "llvm/Support/FileSystem.h"
+#include "llvm/IRReader/IRReader.h"
+#include "llvm/Support/SourceMgr.h"
+#include "llvm/Support/Signals.h"
+#include "llvm/Support/Path.h"
+
+#include <memory>
+#include <vector>
+#include <sstream>
+#include <sys/resource.h>
+#include <iomanip>
+#include <iostream>
+#include <fstream>
+#include <cassert>
+
+#include "CallGraph.h"
+#include "Config.h"
+#include "Common.h"
+
+using namespace llvm;
+
+GlobalContext GlobalCtx;
+
+void MultiModulePass::run(ModuleList &modules) {
+
+	ModuleList::iterator i, e;
+	*OP << "[" << ID << "] Initializing " << modules.size() << " modules...\n";
+  for (i = modules.begin(), e = modules.end(); i != e; ++i) {
+    auto ret = doInitialization(i->first);
+    assert(!ret);
+  }
+
+  unsigned counter_modules = 0;
+  unsigned total_modules = modules.size();
+  for (i = modules.begin(), e = modules.end(); i != e; ++i) {
+    *OP << "[" << ID << "] Processing '" << i->second.str() << "'... ";
+    *OP << "(" << ++counter_modules << " / " << total_modules << ")\n";
+    auto ret = doModulePass(i->first);
+    assert(!ret);
+  }
+
+	*OP << "[" << ID << "] Postprocessing...\n";
+  auto ret = doFinalization(modules);
+  assert(!ret);
+
+	*OP << "[" << ID << "] Done.\n";
+}

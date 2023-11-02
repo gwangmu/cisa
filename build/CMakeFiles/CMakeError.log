@@ -1,0 +1,42 @@
+Performing C++ SOURCE FILE Test HAS_FLTO failed with the following output:
+Change Dir: /home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1c72f/fast && make[1]: Entering directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_1c72f.dir/build.make CMakeFiles/cmTC_1c72f.dir/build
+make[2]: Entering directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1c72f.dir/src.cxx.o
+/home/gwangmu/Projects/Riskier/llvm/install/bin/clang++    -DHAS_FLTO   -flto -o CMakeFiles/cmTC_1c72f.dir/src.cxx.o -c /home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_1c72f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c72f.dir/link.txt --verbose=1
+/home/gwangmu/Projects/Riskier/llvm/install/bin/clang++   -DHAS_FLTO    CMakeFiles/cmTC_1c72f.dir/src.cxx.o  -o cmTC_1c72f  -flto 
+/usr/bin/ld: /home/gwangmu/Projects/Riskier/llvm/install/bin/../lib/LLVMgold.so: error loading plugin: /home/gwangmu/Projects/Riskier/llvm/install/bin/../lib/LLVMgold.so: cannot open shared object file: No such file or directory
+clang-15: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [CMakeFiles/cmTC_1c72f.dir/build.make:87: cmTC_1c72f] Error 1
+make[2]: Leaving directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:121: cmTC_1c72f/fast] Error 2
+make[1]: Leaving directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HAS_FLTO_THIN failed with the following output:
+Change Dir: /home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_46d20/fast && make[1]: Entering directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_46d20.dir/build.make CMakeFiles/cmTC_46d20.dir/build
+make[2]: Entering directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_46d20.dir/src.cxx.o
+/home/gwangmu/Projects/Riskier/llvm/install/bin/clang++    -DHAS_FLTO_THIN   -flto=thin -o CMakeFiles/cmTC_46d20.dir/src.cxx.o -c /home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_46d20
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46d20.dir/link.txt --verbose=1
+/home/gwangmu/Projects/Riskier/llvm/install/bin/clang++   -DHAS_FLTO_THIN    CMakeFiles/cmTC_46d20.dir/src.cxx.o  -o cmTC_46d20  -flto=thin 
+/usr/bin/ld: /home/gwangmu/Projects/Riskier/llvm/install/bin/../lib/LLVMgold.so: error loading plugin: /home/gwangmu/Projects/Riskier/llvm/install/bin/../lib/LLVMgold.so: cannot open shared object file: No such file or directory
+clang-15: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [CMakeFiles/cmTC_46d20.dir/build.make:87: cmTC_46d20] Error 1
+make[2]: Leaving directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:121: cmTC_46d20/fast] Error 2
+make[1]: Leaving directory '/home/gwangmu/Projects/Riskier/cisa/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
