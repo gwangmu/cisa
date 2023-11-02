@@ -28,7 +28,8 @@ having this README.md file)_
 
  1. Create a symlink `llvm` to the LLVM install directory.
    - The "install directory": the directory containing `bin`, `lib`, and
-     stuff. You can just directly decompress the [prebuilt LLVM
+     stuff.
+   - You can just directly decompress the [prebuilt LLVM
      binaries](https://releases.llvm.org/download.html) to `llvm`.
 
  2. Make.
