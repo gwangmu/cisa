@@ -25,8 +25,8 @@ I welcome **any** contribution.
 
 # Build
 
-_Every step is done at the repository root directory. (i.e., the directory
-having this README.md file)_
+Every step is done in the repository root directory (i.e., the directory
+having this README.md file).
 
  1. Create a symlink `llvm` to the LLVM install directory.
    - The "install directory": the directory containing `bin`, `lib`, and
