@@ -7,7 +7,7 @@ the `git` commit history.
 
 The basic philosophy is to do costly static analyses (e.g., indirect call graph
 analysis) incrementally while scanning through the commit history. Every analysis is
-done at the parts that are modified by commits (hence incremental) and, as LLVM IR passes,
+partially done and updated at the commit-modified parts (hence incremental) and, as LLVM IR passes,
 can refer to the result of other analyses.
 
 It is still in its infancy and only supports limited stuff (e.g., analyses can only refer
