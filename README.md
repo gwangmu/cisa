@@ -1,14 +1,19 @@
 # Introduction
 
 CISA is a static analysis framework that supports an incremental analysis over
-the `git` commit history. It is still its infancy and only supports the
-incremental call graph analysis (incl. indirect calls). If anybody read this, I
-welcome any contribution.
+the `git` commit history.
+
+The basic philosophy: do some costly static analyses (e.g., indirect call graph
+analysis) incrementally while scaning through the commit history. Write some
+_more_ custom analyses that utilize those incrementally-done ananlyses.
+
+It is still in its infancy and only supports limited stuff. If anybody read
+this, I welcome **any** contribution.
 
 # Features (so far)
 
- * Integrated incremental call graph analysis (incl. indirect calls)
- * Nice(?) C++ interface for custom function-level analyses
+ * Integrated incremental call graph analysis [MLTA, CCS'19]
+ * Nice C++ interface for custom function-level analyses
 
 # Requirements
 
@@ -32,7 +37,13 @@ having this README.md file)_
 $ make
 ```
 
+# Example 
 
+ * TODO
+
+# Writing Custom Analyses
+
+ * TODO
 
 # Reference
 
