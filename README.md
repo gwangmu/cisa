@@ -1,6 +1,6 @@
 # Introduction
 
-CISA is a static analysis framework that supports an incremental analysis over
+CISA is an LLVM-based IR static analysis framework, supporting an incremental analysis over
 the `git` commit history.
 
 The basic philosophy: do some costly static analyses (e.g., indirect call graph
