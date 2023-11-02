@@ -25,20 +25,10 @@ I welcome **any** contribution.
 
 # Build
 
-Every step is done in the repository root directory (i.e., the directory
-having this README.md file).
+ 1. Decompress the [prebuilt LLVM binary](https://releases.llvm.org/download.html) to `llvm` at the root.
+    - Or you can create a symlink `llvm` to the LLVM install directory.
 
- 1. Create a symlink `llvm` to the LLVM install directory.
-   - The "install directory": the directory containing `bin`, `lib`, and
-     stuff.
-   - You can just directly decompress the [prebuilt LLVM
-     binaries](https://releases.llvm.org/download.html) to `llvm`.
-
- 2. Make.
-
-```
-$ make
-```
+ 2. Make (i.e., `$ make` at the root).
 
 # Example 
 
