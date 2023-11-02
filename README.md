@@ -50,10 +50,10 @@ The following is what developing and using a custom analyzer would look like.
 $ sudo apt install python3 python3-pip cmake
 $ sudo pip install gitpython
 ```
-    - Make sure that `python` is `python3` and `pip` is `pip3`.
+   - Make sure that `python` is `python3` and `pip` is `pip3`.
  
  2. Decompress the [prebuilt LLVM 15 binary](https://releases.llvm.org/download.html) to `llvm` at the root.
-    - Or you can create a symlink `llvm` to the LLVM install directory (if you built LLVM on your own).
+   - Or you can create a symlink `llvm` to the LLVM install directory (if you built LLVM on your own).
 
  3. Make (i.e., `$ make` at the root).
 
