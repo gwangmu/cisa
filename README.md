@@ -16,7 +16,7 @@ I welcome **any** contribution.
 
 ## Concept
 
-As the introduction mentions, CISA aims to _only analyze changed parts_ from commits. To do so, CISA scans the commit history within a given range in chronological order and, given the changed entity `X` by the current commit (e.g., changed function or module), CISA _updates_ the analysis in the changed part first and then _aggregates_ the up-to-date analysis results. For this, CISA requires custom analyzers for the following two callbacks: `Update(X)` and `Aggregate(X)`.
+As the introduction mentions, CISA aims to _only analyze changed parts_ from commits. To do so, CISA scans the commit history within a given range in chronological order and, given the changed entity `X` by the current commit (e.g., changed function or module), it _updates_ the analysis in the changed part first and then _aggregates_ the up-to-date analysis results. For this, CISA requires custom analyzers for the following two callbacks: `Update(X)` and `Aggregate(X)`.
 
  * `Update(X)`: _update_ the analysis for the changed entity `X`. This only updates the analysis _inside_ the entity `X`.
  * `Aggregate(X)`: _aggregate_ the up-to-date analysis result for the changed entity `X`. This assembles the analysis done by `Update` and produces the final analysis result. `Aggregate` is always called after every possible `Update` has been called first, so it's safe to assume _all_ entities in the source code are up-to-date.
