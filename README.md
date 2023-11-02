@@ -4,8 +4,8 @@ CISA is a static analysis framework that supports an incremental analysis over
 the `git` commit history.
 
 The basic philosophy: do some costly static analyses (e.g., indirect call graph
-analysis) incrementally while scaning through the commit history. Write some
-_more_ custom analyses that utilize those incrementally-done ananlyses.
+analysis) incrementally while scanning through the commit history. Write some
+_more_ custom analyses that utilize those incrementally-done analyses.
 
 It is still in its infancy and only supports limited stuff. If anybody read
 this, I welcome **any** contribution.
@@ -28,7 +28,7 @@ having this README.md file)_
 
  1. Create a symlink `llvm` to the LLVM install directory.
    - The "install directory": the directory containing `bin`, `lib`, and
-     stuff. Or rather, you can just directly decompress the [prebuilt LLVM
+     stuff. You can just directly decompress the [prebuilt LLVM
      binaries](https://releases.llvm.org/download.html) to `llvm`.
 
  2. Make.
