@@ -52,7 +52,7 @@ The following is what developing and using a custom analyzer would look like.
 ## Document 
 
  * [Example Analyzers (wip)]()
- * [Writing Custom Analyses (wip)]()
+ * [Writing Custom Analyzers (wip)]()
 
 ## Repository Structure
 
