@@ -49,7 +49,7 @@ $ make
 
  * `script`: CISA front-end scripts (Python)
  * `src`: CISA back-end code (C++)
-   - `analyzer`: where custom analyzers sits in
+   - `analyzer`: where custom analyzers reside 
    - `callgraph`: incremental call graph analysis (MLTA)
  * `extern`: external dependencies
 
