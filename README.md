@@ -52,7 +52,7 @@ I welcome **any** contribution.
 
 ## TODO
 
- * Supporting saving references to LLVM objects (e.g., `Function`) in custom analyses
+ * Supporting reference saving to LLVM objects (e.g., `Function`) in custom analyses
  * Supporting custom module-level analyses
  * Supporting custom analysis inter-operability
 
