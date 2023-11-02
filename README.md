@@ -1,4 +1,6 @@
-# CISA: Continuous Incremental Static Analysis
+# CISA: Continuous Incremental Static Analyzer
+
+## Introduction
 
 CISA is an LLVM-based IR static analysis framework supporting an incremental analysis over
 the `git` commit history.
@@ -12,33 +14,33 @@ It is still in its infancy and only supports limited stuff (e.g., analyses can o
 to the call graph analysis, not other custom ones). If anybody reads this, 
 I welcome **any** contribution.
 
-# Features (so far)
+## Features (so far)
 
  * Integrated call graph analysis [MLTA, CCS'19]
  * Nice C++ interface for custom function-level analyses
 
-# Requirements
+## Requirements
 
  * LLVM 15+ (prebuilt binaries - totally okay)
  * Python 3.8.0+
  * CMake 3.16.3+
 
-# Build
+## Build
 
  1. Decompress the [prebuilt LLVM binary](https://releases.llvm.org/download.html) to `llvm` at the root.
     - Or you can create a symlink `llvm` to the LLVM install directory.
 
  2. Make (i.e., `$ make` at the root).
 
-# Example 
+## Example 
 
  * TODO
 
-# Writing Custom Analyses
+## Writing Custom Analyses
 
  * TODO
 
-# Repository Structure
+## Repository Structure
 
  * `script`: CISA front-end scripts (Python)
  * `src`: CISA back-end code (C++)
@@ -46,12 +48,12 @@ I welcome **any** contribution.
    - `callgraph`: incremental call graph analysis (MLTA)
  * `extern`: external dependencies
 
-# TODO
+## TODO
 
  * Supporting custom module-level analyses
  * Supporting inter-custom-analysis reference
 
-# Reference
+## Reference
 
  * Call graph analysis: code based on [MLTA](https://github.com/umnsec/mlta)
    (0cfc662b51b4, 01/02/2023)
