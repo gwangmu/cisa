@@ -1,4 +1,4 @@
-# Introduction
+# CISA: Continuous Incremental Static Analysis
 
 CISA is an LLVM-based IR static analysis framework supporting an incremental analysis over
 the `git` commit history.
