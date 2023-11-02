@@ -48,11 +48,11 @@ I welcome **any** contribution.
 
 # TODO
 
- * Supporting custom module-level analyses.
- * Supporting inter-custom-analysis reference.
+ * Supporting custom module-level analyses
+ * Supporting inter-custom-analysis reference
 
 # Reference
 
  * Call graph analysis: code based on [MLTA](https://github.com/umnsec/mlta)
-   (0cfc662b51b4, 01/02/2023).
- * Front-end/back-end binding: [pybind11](https://github.com/pybind/pybind11).
+   (0cfc662b51b4, 01/02/2023)
+ * Front-end/back-end binding: [pybind11](https://github.com/pybind/pybind11)
