@@ -28,7 +28,7 @@ I welcome **any** contribution.
 ## Build
 
  1. Decompress the [prebuilt LLVM binary](https://releases.llvm.org/download.html) to `llvm` at the root.
-    - Or you can create a symlink `llvm` to the LLVM install directory.
+    - Or you can create a symlink `llvm` to the LLVM install directory (if you built LLVM on your own).
 
  2. Make (i.e., `$ make` at the root).
 
