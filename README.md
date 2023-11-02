@@ -41,13 +41,21 @@ The following is what developing and using a custom analyzer would look like.
  * LLVM 15+ (prebuilt binaries - totally okay)
  * Python 3.8.0+
  * CMake 3.16.3+
+ * gitpython
 
 ## Build
 
- 1. Decompress the [prebuilt LLVM 15 binary](https://releases.llvm.org/download.html) to `llvm` at the root.
+ 0. Install prerequisites. (assuming Ubuntu 20.04+)
+```
+$ sudo apt install python3 python3-pip cmake
+$ sudo pip install gitpython
+```
+    - Make sure that `python` is `python3` and `pip` is `pip3`.
+ 
+ 2. Decompress the [prebuilt LLVM 15 binary](https://releases.llvm.org/download.html) to `llvm` at the root.
     - Or you can create a symlink `llvm` to the LLVM install directory (if you built LLVM on your own).
 
- 2. Make (i.e., `$ make` at the root).
+ 3. Make (i.e., `$ make` at the root).
 
 ## Document 
 
