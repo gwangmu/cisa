@@ -68,8 +68,9 @@ The following is what developing and using a custom analyzer would look like.
 
 ## TODO
 
- * Supporting reference saving to LLVM objects (e.g., `Function`) in custom analyses
+ * Supporting references to LLVM objects (e.g., `Function`) in custom analyses
  * Supporting custom module-level analyses
+ * Converting the integrated call graph analysis to a custom module-level analysis
  * Supporting custom analysis inter-operability
 
 ## Reference
