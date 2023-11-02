@@ -14,6 +14,8 @@ It is still in its infancy and only supports limited stuff (e.g., analyses can o
 to the call graph analysis, not other custom ones). If anybody reads this, 
 I welcome **any** contribution.
 
+## 
+
 ## Features (so far)
 
  * Integrated call graph analysis [MLTA, CCS'19]
@@ -50,8 +52,9 @@ I welcome **any** contribution.
 
 ## TODO
 
+ * Supporting saving references to LLVM objects (e.g., `Function`) in custom analyses
  * Supporting custom module-level analyses
- * Supporting inter-custom-analysis reference
+ * Supporting custom analysis inter-operability
 
 ## Reference
 
