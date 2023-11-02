@@ -14,7 +14,23 @@ It is still in its infancy and only supports limited stuff (e.g., analyses can o
 to the call graph analysis, not other custom ones). If anybody reads this, 
 I welcome **any** contribution.
 
-## 
+## Concept
+
+As the introduction mentions, CISA aims to _only analyze changed parts_ from commits.
+To do so, CISA scans the commit history within a given range in chronological order and, given the changed entity `X` by the current commit (e.g., changed function or module), CISA calls _two callbacks_ that custom analyzers are expected to implement: `Update(X)` and `Aggregate(X)`.
+
+ * `Update(X)`: _update_ the analysis for the changed entity `X`. This only updates the analysis _inside_ the entity `X`.
+ * `Aggregate(X)`: _aggregate_ the analysis result for the changed entity `X`. This assembles the analysis done by `Update` and produces the final analysis result. `Aggregate` is always called after every possible `Update` has been called first, so it's safe to assume all entities are up-to-date.
+
+## Workflow
+
+The following is what developing and using a custom analyzer would look like.
+
+ 1. Write a custom analyzer (in `src/analyzer`) that implements `Update` and `Aggregate`.
+ 2. Build again (`$ make`).
+ 3. Run the CISA front-end (`$ ./cisa <repo_path> -o <out_path>`).
+    * For each commit from the beginning to the end, CISA calls `Update` with all changed entities first and calls `Aggregate` next.
+ 4. Inspect the printed analysis result in `<out_path>`.
 
 ## Features (so far)
 
