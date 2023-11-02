@@ -45,7 +45,7 @@ The following is what developing and using a custom analyzer would look like.
 
 ## Build
 
- 0. Install prerequisites. (assuming Ubuntu 20.04+)
+ 1. Install prerequisites. (assuming Ubuntu 20.04+)
 ```
 $ sudo apt install python3 python3-pip cmake
 $ sudo pip install gitpython
