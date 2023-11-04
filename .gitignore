@@ -2,3 +2,4 @@ build
 .*.swp
 llvm
 __pycache__
+/cisa
