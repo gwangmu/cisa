@@ -47,6 +47,7 @@ int main(int argc, char** argv) {
   }
 
   std::string libpath = std::string(basepath + "/../../lib/libIRDumper.so");
+  std::string pass_plugin = "-fpass-plugin=" + libpath;
 
   cc_params[cc_par_cnt++] = (char*)"-g";
   cc_params[cc_par_cnt++] = (char*)"-Wno-error";
@@ -54,14 +55,13 @@ int main(int argc, char** argv) {
 
   cc_params[cc_par_cnt++] = (char*)"-Xclang";
   cc_params[cc_par_cnt++] = (char*)"-no-opaque-pointers";
-  cc_params[cc_par_cnt++] = (char*)"-Xclang";
-  cc_params[cc_par_cnt++] = (char*)"-flegacy-pass-manager";
-  cc_params[cc_par_cnt++] = (char*)"-Xclang";
-  cc_params[cc_par_cnt++] = (char*)"-load";
-  cc_params[cc_par_cnt++] = (char*)"-Xclang";
-  cc_params[cc_par_cnt++] = (char*)libpath.c_str();
+  cc_params[cc_par_cnt++] = (char*)pass_plugin.c_str();
 
   cc_params[cc_par_cnt] = NULL;
+
+  for (int i = 0; i < cc_par_cnt; i++)
+    std::cout << cc_params[i] << " ";
+  std::cout << "\n";
 
   execvp(cc_params[0], (char**)cc_params);
 

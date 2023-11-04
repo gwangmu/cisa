@@ -1,5 +1,5 @@
 #include "llvm/Bitcode/BitcodeWriter.h"
-#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/IR/PassManager.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Pass.h"
@@ -11,14 +11,12 @@
 
 using namespace llvm;
 
-class IRDumper : public ModulePass {
+class IRDumper : public PassInfoMixin<IRDumper> {
 public:
-	static char ID;
-	IRDumper() : ModulePass(ID) {}
-	virtual bool runOnModule(Module &M);
+	PreservedAnalyses run(Module &M, ModuleAnalysisManager &MAM);
 };
 
-bool IRDumper::runOnModule(Module &M) {
+PreservedAnalyses IRDumper::run(Module &M, ModuleAnalysisManager &MAM) {
 	int bc_fd;
 
 	StringRef FN = M.getName();
@@ -27,19 +25,16 @@ bool IRDumper::runOnModule(Module &M) {
 	raw_fd_ostream bc_file(bc_fd, true, true);
 	WriteBitcodeToFile(M, bc_file);
 
-	return false;
+  return PreservedAnalyses::all();
 }
 
-char IRDumper::ID = 0;
-static RegisterPass<IRDumper> X("IRDumper", "dump IR to file", false, false);
-
-/* Pass registration (legacy) */
-
-static void registerIRDumper(const PassManagerBuilder &PMB,
-		legacy::PassManagerBase &PM) 
-{	PM.add(new IRDumper()); }
-
-static RegisterStandardPasses RegisterIRDumperPass(
-		PassManagerBuilder::EP_OptimizerLast, registerIRDumper);
-static RegisterStandardPasses RegisterIRDumperPassL0(
-		PassManagerBuilder::EP_EnabledOnOptLevel0, registerIRDumper);
+extern "C" ::llvm::PassPluginLibraryInfo LLVM_ATTRIBUTE_WEAK
+llvmGetPassPluginInfo() {
+	return {LLVM_PLUGIN_API_VERSION, "IRDumper", "v0.1",
+		[](PassBuilder &PB) {
+			PB.registerOptimizerLastEPCallback(
+				[](ModulePassManager &MPM, OptimizationLevel OL) {
+					MPM.addPass(IRDumper());
+				});
+		}};
+}
