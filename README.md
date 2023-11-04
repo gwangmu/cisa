@@ -58,6 +58,7 @@ $ sudo pip install gitpython
 $ # example: assuming Ubuntu 20.04+. at the root directory.
 $ wget https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.5/clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04.tar.xz
 $ tar -xvf clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+$ rm clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04.tar.xz
 $ mv clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04 llvm
 ```
 
