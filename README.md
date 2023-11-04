@@ -86,6 +86,7 @@ $ make # at the root directory.
  * Supporting custom module-level analyses
  * Converting the integrated call graph analysis to a custom module-level analysis
  * Supporting custom analysis inter-operability
+ * Improving initial checkout delay
 
 ## Reference
 
