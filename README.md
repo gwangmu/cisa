@@ -89,6 +89,5 @@ $ make # at the root directory.
 
 ## Reference
 
- * Call graph analysis: code based on [MLTA](https://github.com/umnsec/mlta)
-   (0cfc662b51b4, 01/02/2023)
- * Front-end/back-end binding: [pybind11](https://github.com/pybind/pybind11)
+ * Call graph analysis: code based on [MLTA](https://github.com/umnsec/mlta) (0cfc662b51b4, 01/02/2023)
+ * Front-end/back-end binding: [pybind11](https://github.com/pybind/pybind11) (31b0a5d94f60, 04/11/2023)
