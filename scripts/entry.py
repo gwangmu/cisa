@@ -40,7 +40,6 @@ args = parser.parse_args()
 def _Cleanup(sig, frame):
     if (os.path.exists(WORK_REPO_PATH)):
         shutil.rmtree(WORK_REPO_PATH)                  # XXX: test (bc precomp)
-        pass
     sys.exit(0)
 signal.signal(signal.SIGINT, _Cleanup)
 
@@ -159,6 +158,7 @@ def main():
 
     cisa.Finalize()
     bcbuild.Finalize()
+    shutil.rmtree(WORK_REPO_PATH)
     log.Info("done.")
 
 if (__name__ == "__main__"):
