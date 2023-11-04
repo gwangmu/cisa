@@ -38,7 +38,7 @@ The following is what developing and using a custom analyzer would look like.
 
 ## Requirements
 
- * LLVM 14 (prebuilt binaries - totally okay)
+ * LLVM 15.0.5
  * Python 3.8.0+
  * CMake 3.16.3+
  * Some python packages: gitpython, termcolor, alive_progress
@@ -56,10 +56,10 @@ $ sudo pip install gitpython termcolor alive_progress
     - Or you can create a symlink `llvm` to the LLVM install directory (if you built LLVM on your own).
 ```
 $ # example: assuming Ubuntu 20.04+. at the root directory.
-$ wget https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-$ tar -xvf clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-$ rm clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-$ mv clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04 llvm
+$ wget https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.5/clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+$ tar -xvf clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+$ rm clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+$ mv clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04 llvm
 ```
 
  3. Make.
