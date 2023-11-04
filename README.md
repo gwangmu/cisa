@@ -41,7 +41,7 @@ The following is what developing and using a custom analyzer would look like.
  * LLVM 14 (prebuilt binaries - totally okay)
  * Python 3.8.0+
  * CMake 3.16.3+
- * gitpython
+ * Some python packages: gitpython, termcolor, alive_progress
 
 ## Build
 
@@ -49,7 +49,7 @@ The following is what developing and using a custom analyzer would look like.
     - Make sure that `python` is `python3` and `pip` is `pip3`.
 ```
 $ sudo apt install python3 python3-pip cmake
-$ sudo pip install gitpython
+$ sudo pip install gitpython termcolor alive_progress
 ```
  
  2. Decompress the [prebuilt LLVM 15 binary](https://releases.llvm.org/download.html) to `llvm` at the root.
