@@ -22,7 +22,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 import cisa
-from bcbuild import libsndfile as bcbuild   # TODO
+import bcbuild
 import comanal
 
 WORK_REPO_PATH = '/tmp/cisa_repo-' + str(int(datetime.timestamp(datetime.now())))
@@ -35,6 +35,7 @@ parser.add_argument('-b', type=str, help="Commit before... (date, incl)")
 parser.add_argument('-B', type=str, help="Commit before... (hexsha, incl)")
 parser.add_argument('-o', type=str, default="cisa_out", help="Path to output.")
 parser.add_argument('-m', action='store_true', help="Include merge commits.")
+parser.add_argument('-x', type=str, help="Reconfigure script path.")
 args = parser.parse_args()
 
 def _Cleanup(sig, frame):
@@ -100,7 +101,7 @@ def main():
     log.Info("checking out initial commit...")
     repo.git.checkout(commits[0].hexsha, force=True)   # XXX: test (bc precomp)
     commits = commits[1:]
-    bcbuild.CleanAndReconfig()
+    bcbuild.CleanAndReconfig(args.x)
 
     log.Info("building all...")
     bcbuild.BuildAll()                                 # XXX: test (bc precomp)

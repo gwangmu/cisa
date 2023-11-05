@@ -11,27 +11,12 @@ log_file = None
 
 def _Make(*cmds):
     SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
-    IRDUMPER_PATH = SCRIPT_PATH + "/../../tmpext/IRDumper/build/lib/libDumper.so"
-    LLVM_LIB_PATH = SCRIPT_PATH + "/../../../llvm/install/lib"
-    CLANG_PATH = SCRIPT_PATH + "/../../../llvm/install/bin/clang"
-    MF_NAME = "Makefile.cisa"
-
-    org_mf_path = repo_path + '/makefile'
-    if (not os.path.exists(org_mf_path)):
-        org_mf_path = repo_path + '/Makefile'
-
-    # Generate alternative Makefile.
-    mf_path = repo_path + '/' + MF_NAME 
-    shutil.copy(org_mf_path, mf_path)
-    with open(mf_path, 'a') as f:
-        f.write("\n# CISA build script addition.\n"\
-                "CFLAGS += -Wno-error -g -Xclang -no-opaque-pointers -fno-inline "\
-                "-Xclang -flegacy-pass-manager -Xclang -load -Xclang {0}\n"\
-                .format(IRDUMPER_PATH))
+    IRD_CLANG_PATH = SCRIPT_PATH + "/../build/extern/irdump/ird-clang"
 
     # Execute "make".
-    _make = subprocess.Popen(["make", "-C" + repo_path, "-f" + MF_NAME, "-k", "-i",
-        "-j" + str(N_PARALLEL_CORES), "CC=" + CLANG_PATH] + list(cmds),
+    _make = subprocess.Popen(["make",
+        "-C" + repo_path, "-k", "-i", "-j" + str(N_PARALLEL_CORES), 
+        "CC=" + IRD_CLANG_PATH] + list(cmds),
         stdout=log_file, stderr=log_file)
     _make.communicate()
 
@@ -40,6 +25,14 @@ def SetRepoPath(_repo_path, _log_file):
     global log_file
     repo_path = _repo_path
     log_file = _log_file
+
+def CleanAndReconfig(reconf_path):
+    if (not reconf_path): return
+    with open(reconf_path, 'r') as f:
+        reconf_lines = f.readlines()
+    for reconf_line in reconf_lines:
+        subprocess.run("cd " + repo_path + ";" + reconf_line.strip(),
+            shell=True, stdout=log_file, stderr=log_file)
 
 def BuildAll():
     log_file.write("info: building all...\n")
