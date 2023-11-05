@@ -17,7 +17,7 @@ all:
 			 CC=clang CXX=clang++ \
 			 cmake -B${CISA_BUILD} -S. \
 					-DCMAKE_BUILD_TYPE=Debug; \
-	make -C${CISA_BUILD} -j && ln -s scripts/entry.py cisa
+	make -C${CISA_BUILD} -j && ln -sf scripts/entry.py cisa
 
 clean:
 	rm -rf ${CISA_BUILD} && rm cisa
