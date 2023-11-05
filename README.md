@@ -43,7 +43,7 @@ The following is what developing and using a custom analyzer would look like.
  * CMake 3.16.3+
  * Some python packages: gitpython, termcolor, alive_progress
 
-## Build
+## Build (native)
 
  1. Install prerequisites. (assuming Ubuntu 20.04+)
     - Make sure that `python` is `python3` and `pip` is `pip3`.
@@ -66,6 +66,10 @@ $ mv clang+llvm-15.0.5-x86_64-linux-gnu-ubuntu-18.04 llvm
 ```
 $ make # at the root directory.
 ```
+
+## Build (dockerized)
+
+See [this](https://github.com/gwangmu/cisa-docker) page for a dockerized setting.
 
 ## Document 
 
