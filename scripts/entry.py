@@ -22,7 +22,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 import cisa
-from bcbuild import libsndfile as bcbuild
+from bcbuild import libsndfile as bcbuild   # TODO
 import comanal
 
 WORK_REPO_PATH = '/tmp/cisa_repo-' + str(int(datetime.timestamp(datetime.now())))
@@ -67,10 +67,16 @@ def _UpdateRepo(repo, commit, changes):
                 f.write(_src)
 
 def main():
-    log.Init("log")
+    if (os.path.exists(args.o)):
+        for filename in os.listdir(args.o):
+            file_path = os.path.join(args.o, filename)
+            if (os.path.isfile(file_path) or os.path.islink(file_path)):
+                os.unlink(file_path)
+            elif (os.path.isdir(file_path)):
+                shutil.rmtree(file_path)
+    os.makedirs(args.o, exist_ok=True)
 
-    if (os.path.exists(args.o)): shutil.rmtree(args.o)
-    os.makedirs(args.o)
+    log.Init(args.o + "/log")
     bcbuild.SetRepoPath(WORK_REPO_PATH, sys.stdout) #open(args.o + '/log.bcbuild', 'w'))
 
     log.Info("prepping git...")

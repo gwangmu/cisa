@@ -101,5 +101,3 @@ namespace AnalyzerManager {
     int x##_create = ([](){ analyzers.push_back(x##_inst); }(), 0); \
     template <typename x> x* GetAnalysis() { return x##_inst; } \
   }
-
-#define REGISTER_ANALYZER_PRIORITY(x) // TODO
