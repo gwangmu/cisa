@@ -48,7 +48,7 @@ The following is what developing and using a custom analyzer would look like.
  1. Install prerequisites. (assuming Ubuntu 20.04+)
     - Make sure that `python` is `python3` and `pip` is `pip3`.
 ```
-$ sudo apt install python3 python3-pip cmake
+$ sudo apt install python3 python3-pip python-is-python3 cmake
 $ sudo pip install gitpython termcolor alive_progress
 ```
  
